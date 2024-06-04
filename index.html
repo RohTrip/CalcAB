@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Integration Methods in Calculus AB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .method {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        .method h2 {
+            margin-top: 0;
+        }
+        .method p {
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Integration Methods in Calculus AB</h1>
+
+    <div id="methods"></div>
+
+    <script>
+        const methods = [
+            {
+                name: "U-Substitution Method",
+                description: "The substitution method is used when the integrand contains an expression that can be substituted with a simpler variable. This method involves finding the appropriate substitution, substituting it into the integral, simplifying, and then reversing the substitution.",
+                example: "Identify the part of the integrand that can be substituted with a new variable 'u'. This part should involve the variable of integration.\n\n Express 'du' in terms of the original variable of integration (e.g., du = f(x) dx).\n\n Substitute the expressions for 'u' and 'du' into the original integral.\n\n Solve the new integral in terms of 'u'.\n\n Substitute the original expression for 'u' back into the solution to obtain the final answer in terms of the original variable.\n\n Choose a function 'u' whose derivative 'du' is simple to integrate.\n\n Let 'dv' be the remaining part of the integrand.\n\n Then, v = ∫ dv (find the antiderivative of 'dv').\n\n Apply the integration by parts formula: ∫ u dv = u v - ∫ v du \n\n Substitute the expressions for u, dv, v, and du into the formula.\n\n Evaluate the resulting integrals on both sides to find the antiderivative.\n\n Here's an example: \n\n 1) Identify the part of the integrand that can be substituted with a new variable 'u'. This part should involve the variable of integration.\n\n Let u = 2x + 3 (the part we want to substitute)\n\n2) Express 'du' in terms of the original variable of integration (e.g., du = f(x) dx).\n\n Then, du = 2 dx (by taking the derivative of 'u' with respect to 'x')\n\n 3) Substitute the expressions for 'u' and 'du' into the original integral.\n\n∫ (2x + 3)^5 dx = (1/2) ∫ u^5 du (since du = 2 dx)\n\n4) Solve the new integral in terms of 'u'.\n\n = (1/2) * (u^6/6) + C (integrating u^5 with respect to 'u')\n\n 5) Substitute the original expression for 'u' back into the solution to obtain the final answer in terms of the original variable.\n\n = (1/12) * (2x + 3)^6 + C\n\n"
+            }, 
+            {
+                name: "Integration by Parts",
+                description: "The integration by parts method is used when the integrand is the product of two functions, where one function is the derivative of another. This method involves finding an appropriate way to split the integrand into two parts, and then applying the integration by parts formula.",
+                example: "1) Identify the integral to be solved:∫udv\n\n 2) Choose u and dv: Select u and dv from the integrand. Typically, u is chosen to be a function that becomes simpler when differentiated, and dv is chosen to be a function that is easy to integrate.\n\n 3) Integrate dv to find v:\n\n 4) Solve the new integral in terms of 'u'.\n\n 5) Apply the integration by parts formula: ∫udv=uv-∫vdu\n\n Heres an example: \n\n ∫xe^xdx.\n\n Let u=x (algebraic) Let dv = e^x(exponential) \n\n Derive U and Integrate dV: du=1dx v=e^x \n\n Plug into the function ∫xe^xdx=xe^x −∫e^xdx"
+           },
+            {
+                name: "Relationship between Velocity, Acceleration, and Position",
+                description: "In calculus, there is a fundamental relationship between velocity, acceleration, and position. Velocity is the derivative of position with respect to time, and acceleration is the derivative of velocity with respect to time. Integrating velocity with respect to time gives position, and integrating acceleration with respect to time gives velocity.",
+                example: "Let s(t) be the position function, v(t) be the velocity function, and a(t) be the acceleration function.\n\nv(t) = ds/dt (Velocity is the derivative of position)\na(t) = dv/dt = d^2s/dt^2 (Acceleration is the derivative of velocity)\n∫ v(t) dt = s(t) + C (Integrating velocity gives position)\n∫ a(t) dt = v(t) + C (Integrating acceleration gives velocity)"
+            },
+            {
+                name: "Synthetic Division",
+                description: "Synthetic division is a shortcut method used to divide a polynomial by a linear expression of the form (x - a), where 'a' is a constant. It allows you to find the quotient and remainder of the division without performing the traditional long division process.",
+                example: "Here are the Steps:\n\n Arrange the polynomial in descending order of powers of x.\n\n Write the coefficients of the polynomial in a row, leaving a space at the beginning for the divisor (x - a).\n\n Bring down the leading coefficient of the polynomial into the space at the beginning.\n\n Multiply this leading coefficient by 'a' (the constant in the divisor) and write the result below the next coefficient of the polynomial.\n\n Subtract this result from the coefficient directly below it, and bring down the result.\n\n Repeat steps 4 and 5 until you reach the constant term of the polynomial. \n\n The coefficients in the row, excluding the initial divisor, represent the quotient polynomial. \n\n The last number in the row is the remainder of the division. \n\n Here's an example: 2x^3 + 3x^2 - 4x + 5, x-2\n\n Coefficients: 2,3,-4,5 Divisor: X-2 (A=2) \n\n Here's the link: https://docs.google.com/document/d/1eifR8Jhj8Bmcy29rzm66JNCKeXv5ol9pqCIisFiAFcM/edit?usp=sharing"
+            }
+            // Add more methods as needed
+        ];
+
+        const methodsContainer = document.getElementById("methods");
+
+        methods.forEach(method => {
+            const methodDiv = document.createElement("div");
+            methodDiv.classList.add("method");
+
+            const heading = document.createElement("h2");
+            heading.textContent = method.name;
+            methodDiv.appendChild(heading);
+
+            const description = document.createElement("p");
+            description.textContent = method.description;
+            methodDiv.appendChild(description);
+
+            const example = document.createElement("pre");
+            example.textContent = method.example;
+            methodDiv.appendChild(example);
+
+            methodsContainer.appendChild(methodDiv);
+        });
+    </script>
+</body>
+</html>
