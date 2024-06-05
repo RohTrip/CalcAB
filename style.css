@@ -1,0 +1,61 @@
+body {
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+
+
+
+
+    h1 {
+        display: grid;
+        justify-content: center;
+        font-size: 60px;
+    }
+
+    .methods {
+
+        display: grid;
+        justify-content: center;
+
+        h1 {
+            font-size: 40px;
+            margin-top: 10px;
+            font-weight: 200;
+        }
+
+        h2 {
+
+            font-weight: 100;
+            width: 70vw;
+            align-self: center;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+
+        }
+    }
+
+    img {
+        width: 50vw;
+        height: 100vh;
+    }
+
+
+}
+
+footer {
+
+    display: grid;
+    justify-content: center;
+    text-align: center;
+
+    h2 {
+        font-weight: lighter;
+        color: lightgray;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: smaller;
+    }
+
+}
