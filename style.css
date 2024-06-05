@@ -35,6 +35,15 @@ body {
             text-align: center;
 
         }
+
+        h3 {
+            font-size: 30px;
+            font-weight: 100;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            align-self: center;
+        }
     }
 
     img {
